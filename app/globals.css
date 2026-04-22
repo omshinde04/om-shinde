@@ -1,0 +1,10 @@
+@import "tailwindcss";
+
+/* Global reset + dark theme lock */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #020617; /* bg-background */
+  color: #e5e7eb;           /* text-textPrimary */
+}
