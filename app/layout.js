@@ -127,6 +127,10 @@ export const metadata = {
   },
 
   manifest: "/site.webmanifest",
+
+  verification: {
+    google: "google4fd98efd21827253",
+  },
 };
 
 /* ================= STRUCTURED DATA (JSON-LD) ================= */
