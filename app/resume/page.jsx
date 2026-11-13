@@ -3,6 +3,7 @@
 import { Download, Eye, ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { trackResumeAction } from "@/lib/telemetry";
 
 export default function ResumePage() {
   return (
@@ -46,6 +47,7 @@ export default function ResumePage() {
               href="/resume/om_shinde.pdf"
               target="_blank"
               rel="noreferrer"
+              onClick={() => trackResumeAction("view_raw_pdf")}
               className="
                 inline-flex items-center gap-2 px-5 py-3 rounded-xl
                 border border-white/10 bg-[#141416] text-xs font-medium text-zinc-200
@@ -59,6 +61,7 @@ export default function ResumePage() {
             <a
               href="/resume/om_shinde.pdf"
               download="Om_Shinde_Resume.pdf"
+              onClick={() => trackResumeAction("download_pdf")}
               className="
                 inline-flex items-center gap-2 px-6 py-3 rounded-xl
                 bg-[#CBF432] text-[#0B0B0C] text-xs font-bold tracking-tight
@@ -134,6 +137,7 @@ export default function ResumePage() {
         <a
           href="/resume/om_shinde.pdf"
           target="_blank"
+          onClick={() => trackResumeAction("view_raw_pdf")}
           className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl border border-white/10 bg-[#141416] text-xs font-mono text-zinc-300"
         >
           <Eye size={15} />
@@ -143,6 +147,7 @@ export default function ResumePage() {
         <a
           href="/resume/om_shinde.pdf"
           download="Om_Shinde_Resume.pdf"
+          onClick={() => trackResumeAction("download_pdf")}
           className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-[#CBF432] text-[#0B0B0C] font-bold text-xs font-mono shadow-[0_0_20px_rgba(203,244,50,0.3)]"
         >
           <Download size={15} />

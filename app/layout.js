@@ -4,6 +4,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SmoothScroll from "@/components/SmoothScroll";
 import Loader from "@/components/Loader";
+import TelemetryProvider from "@/components/TelemetryProvider";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -217,6 +218,8 @@ export default function RootLayout({ children }) {
         suppressHydrationWarning
         className="min-h-screen bg-[#0B0B0C] text-white selection:bg-[#CBF432] selection:text-[#0B0B0C] antialiased"
       >
+        <TelemetryProvider />
+
         {/* ===== TOP PROGRESS LOADER ===== */}
         <Loader />
 

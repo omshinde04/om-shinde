@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Github, Linkedin, Mail, ArrowUpRight } from "lucide-react";
 import Link from "next/link";
+import { trackContactClick } from "@/lib/telemetry";
 
 const container = {
   hidden: {},
@@ -117,6 +118,7 @@ export default function Footer() {
                     href={s.href}
                     target="_blank"
                     rel="noreferrer"
+                    onClick={() => trackContactClick(s.label.toLowerCase())}
                     whileHover={{ y: -2 }}
                     whileTap={{ scale: 0.96 }}
                     className="

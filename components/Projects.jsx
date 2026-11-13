@@ -11,6 +11,7 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { trackProjectClick } from "@/lib/telemetry";
 
 /* ================= PROJECT DATA ================= */
 
@@ -181,7 +182,12 @@ export default function Projects() {
                       // {project.code}
                     </div>
 
-                    <Link href={project.link} target="_blank" className="block w-full h-full">
+                    <Link
+                      href={project.link}
+                      target="_blank"
+                      onClick={() => trackProjectClick(project.title)}
+                      className="block w-full h-full"
+                    >
                       <motion.div
                         whileHover={{ scale: 1.05 }}
                         transition={{ duration: 0.4 }}
@@ -215,6 +221,7 @@ export default function Projects() {
                       <Link
                         href={project.link}
                         target="_blank"
+                        onClick={() => trackProjectClick(project.title)}
                         className="
                           p-2 rounded-lg bg-[#0B0B0C] border border-white/10
                           text-zinc-400 hover:text-[#0B0B0C] hover:bg-[#CBF432] hover:border-[#CBF432]

@@ -15,6 +15,7 @@ import {
   Github,
   Linkedin,
 } from "lucide-react";
+import { trackContactClick } from "@/lib/telemetry";
 
 export default function ContactPage() {
   const [loading, setLoading] = useState(false);
@@ -40,6 +41,7 @@ export default function ContactPage() {
       if (res.ok) {
         setStatus("success");
         form.reset();
+        trackContactClick("form_inquiry");
       } else {
         setStatus("error");
       }
@@ -125,6 +127,7 @@ export default function ContactPage() {
                       href={s.href}
                       target="_blank"
                       rel="noreferrer"
+                      onClick={() => trackContactClick(s.label.toLowerCase())}
                       className="
                         inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg
                         border border-white/10 bg-[#141416] text-xs font-mono text-zinc-300
