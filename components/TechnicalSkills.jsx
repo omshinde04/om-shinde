@@ -14,37 +14,43 @@ const skills = [
   {
     title: "Programming Languages",
     icon: Code2,
-    items: ["JavaScript", "Java", "Python", "C", "C++"],
+    code: "01",
+    items: ["JavaScript (ES6+)", "Java", "Python", "C", "C++", "SQL"],
   },
   {
-    title: "Front-end Development",
+    title: "Front-end Architecture",
     icon: Layers,
-    items: ["HTML5", "CSS3", "Tailwind CSS", "React.js", "Next.js"],
+    code: "02",
+    items: ["React.js", "Next.js (App Router)", "Tailwind CSS", "Framer Motion", "HTML5 / CSS3", "State Management"],
   },
   {
-    title: "Back-end Development",
+    title: "Back-end & Systems",
     icon: Server,
-    items: ["Node.js", "Express.js", "REST APIs"],
+    code: "03",
+    items: ["Node.js", "Express.js", "REST APIs", "Redis (Cache)", "JWT Authentication", "WebSockets"],
   },
   {
-    title: "Databases",
+    title: "Databases & Storage",
     icon: Database,
-    items: ["MongoDB", "SQL", "Firebase"],
+    code: "04",
+    items: ["PostgreSQL", "MongoDB", "Mongoose", "Firebase", "Query Optimization"],
   },
   {
-    title: "Tools & Platforms",
+    title: "DevOps & Tooling",
     icon: Wrench,
-    items: ["Git", "GitHub", "Vercel", "Figma"],
+    code: "05",
+    items: ["Git / GitHub", "Docker", "Vercel", "Postman", "Linux / CLI", "Figma"],
   },
   {
-    title: "Additional Skills",
+    title: "Core Competencies",
     icon: Sparkles,
+    code: "06",
     items: [
-      "Responsive Design",
-      "Full-Stack Development",
-      "Web App Architecture",
-      "Problem Solving",
-      "Technical Writing",
+      "Data Structures & Algorithms",
+      "System Design",
+      "Clean Architecture",
+      "Performance Tuning",
+      "API Security",
     ],
   },
 ];
@@ -53,141 +59,110 @@ export default function TechnicalSkills() {
   return (
     <section
       id="skills"
-      className="
-        relative w-full
-        pt-16 sm:pt-20 md:pt-24
-        pb-20 sm:pb-24
-        overflow-hidden
-      "
+      className="relative w-full pt-20 sm:pt-28 pb-20 sm:pb-28 overflow-hidden bg-[#0B0B0C] scroll-mt-20 border-t border-white/5"
     >
-      {/* Background */}
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute inset-0 bg-linear-to-br from-indigo-500/10 via-transparent to-cyan-500/10" />
+      {/* Background Ambience */}
+      <div className="pointer-events-none absolute inset-0 -z-10">
+        <div className="absolute bottom-10 right-0 h-96 w-96 rounded-full bg-[#CBF432]/5 blur-[140px]" />
       </div>
 
       <div className="mx-auto max-w-6xl px-5 sm:px-6">
-        {/* Heading */}
+        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
+          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
           className="mb-14 max-w-2xl"
         >
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white">
-            Technical{" "}
-            <span className="text-transparent bg-clip-text bg-linear-to-r from-indigo-400 to-cyan-400">
-              Skills
+          <div className="inline-flex items-center gap-2 mb-3">
+            <span className="w-2 h-2 rounded-full bg-[#CBF432]" />
+            <span className="text-[11px] font-mono tracking-widest text-[#CBF432] uppercase">
+              02 // TECHNICAL ARSENAL
             </span>
+          </div>
+
+          <h2
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-white leading-tight tracking-tight"
+            style={{ fontFamily: "var(--font-syne), sans-serif" }}
+          >
+            Engineered for{" "}
+            <span className="text-[#CBF432]">scale & reliability</span>
           </h2>
 
-          <p className="mt-4 text-gray-400 text-sm sm:text-base">
-            A modern, production-focused skill set built around scalability,
-            performance, and clean architecture.
+          <p className="mt-4 text-zinc-400 text-sm sm:text-base leading-relaxed">
+            A production-grade stack curated around low latency, predictable data flow, and modern engineering standards.
           </p>
         </motion.div>
 
         {/* Cards Grid */}
-        <motion.div
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true }}
-          variants={{
-            hidden: {},
-            show: {
-              transition: {
-                staggerChildren: 0.12,
-              },
-            },
-          }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
-        >
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {skills.map((skill, index) => {
             const Icon = skill.icon;
-            const fromLeft = index % 2 === 0;
 
             return (
               <motion.div
-                key={index}
-                variants={{
-                  hidden: {
-                    opacity: 0,
-                    x: fromLeft ? -80 : 80,
-                    y: 24,
-                  },
-                  show: {
-                    opacity: 1,
-                    x: 0,
-                    y: 0,
-                    transition: {
-                      type: "spring",
-                      stiffness: 90,
-                      damping: 18,
-                    },
-                  },
-                }}
+                key={skill.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.08, ease: [0.16, 1, 0.3, 1] }}
                 className="
-                  group
-                  relative
-                  rounded-2xl
+                  group relative rounded-2xl
                   border border-white/10
-                  bg-linear-to-br from-white/4 to-white/1
-                  backdrop-blur-xl
-                  p-5
-                  md:hover:border-indigo-400/40
-                  group-active:border-indigo-400/40
-                  transition
+                  bg-[#141416]
+                  p-6
+                  hover:border-[#CBF432]/50
+                  hover:shadow-[0_10px_30px_rgba(203,244,50,0.06)]
+                  transition-all duration-300
+                  flex flex-col justify-between
                 "
               >
-                {/* Header */}
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="p-2 rounded-lg bg-indigo-500/15 text-indigo-400">
-                    <Icon size={18} />
+                {/* Top index & icon */}
+                <div>
+                  <div className="flex items-center justify-between mb-5">
+                    <div className="p-2.5 rounded-xl bg-[#0B0B0C] border border-white/8 text-[#CBF432] group-hover:bg-[#CBF432] group-hover:text-[#0B0B0C] transition-colors duration-200">
+                      <Icon size={18} />
+                    </div>
+                    <span className="text-[11px] font-mono text-zinc-500 font-semibold tracking-wider">
+                      // {skill.code}
+                    </span>
                   </div>
-                  <h3 className="text-base font-semibold text-white">
+
+                  <h3
+                    className="text-lg font-bold text-white mb-4 tracking-tight"
+                    style={{ fontFamily: "var(--font-syne), sans-serif" }}
+                  >
                     {skill.title}
                   </h3>
-                </div>
 
-                {/* Pills */}
-                <div className="flex flex-wrap gap-2">
-                  {skill.items.map((item, i) => (
-                    <span
-                      key={i}
-                      className="
-                        px-3 py-1
-                        rounded-full
-                        text-xs
-                        font-medium
-                        text-gray-200
-                        bg-linear-to-r from-indigo-500/20 to-cyan-500/20
-                        border border-white/10
-                        transition
-                      "
-                    >
-                      {item}
-                    </span>
-                  ))}
-                </div>
-
-                {/* Hover / Tap Glow */}
-                <div
-                  className="
-                    pointer-events-none
-                    absolute inset-0
-                    rounded-2xl
-                    opacity-0
-                    md:group-hover:opacity-100
-                    group-active:opacity-100
-                    transition
-                  "
-                >
-                  <div className="absolute inset-0 bg-linear-to-r from-indigo-500/10 to-cyan-500/10 blur-xl" />
+                  {/* Pills */}
+                  <div className="flex flex-wrap gap-1.5">
+                    {skill.items.map((item, i) => (
+                      <span
+                        key={i}
+                        className="
+                          px-2.5 py-1
+                          rounded-lg
+                          text-xs
+                          font-mono
+                          text-zinc-300
+                          bg-[#0B0B0C]
+                          border border-white/8
+                          group-hover:border-white/15
+                          hover:!border-[#CBF432]/60 hover:!text-[#CBF432]
+                          transition-all duration-150
+                        "
+                      >
+                        {item}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </motion.div>
             );
           })}
-        </motion.div>
+        </div>
       </div>
     </section>
   );

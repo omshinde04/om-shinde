@@ -28,7 +28,6 @@ const education = [
   },
 ];
 
-
 export default function Education() {
   const timelineRef = useRef(null);
   const [showAllMobile, setShowAllMobile] = useState(false);
@@ -43,61 +42,73 @@ export default function Education() {
   return (
     <section
       id="education"
-      className="relative w-full pt-24 pb-24 overflow-hidden"
+      className="relative w-full pt-20 sm:pt-28 pb-20 sm:pb-28 overflow-hidden bg-[#0B0B0C] scroll-mt-20 border-t border-white/5"
     >
-      {/* Background */}
-      <div className="absolute inset-0 -z-10 bg-linear-to-br from-indigo-500/12 via-transparent to-cyan-500/12" />
+      {/* Background Ambience */}
+      <div className="pointer-events-none absolute inset-0 -z-10">
+        <div className="absolute top-1/2 right-1/4 -translate-y-1/2 h-96 w-96 rounded-full bg-[#CBF432]/5 blur-[160px]" />
+      </div>
 
       <div className="mx-auto max-w-6xl px-5 sm:px-6">
         {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 32 }}
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="mb-14 max-w-2xl"
+          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          className="mb-16 max-w-2xl"
         >
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white">
-            Education{" "}
-            <span className="text-transparent bg-clip-text bg-linear-to-r from-indigo-400 to-cyan-400">
-              Timeline
+          <div className="inline-flex items-center gap-2 mb-3">
+            <span className="w-2 h-2 rounded-full bg-[#CBF432]" />
+            <span className="text-[11px] font-mono tracking-widest text-[#CBF432] uppercase">
+              04 // ACADEMIC BACKGROUND
             </span>
+          </div>
+
+          <h2
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-white leading-tight tracking-tight"
+            style={{ fontFamily: "var(--font-syne), sans-serif" }}
+          >
+            Academic rigor & <span className="text-[#CBF432]">theoretical depth</span>
           </h2>
 
-          <p className="mt-3 text-gray-400">
-            A journey of learning, growth, and technical mastery.
+          <p className="mt-4 text-zinc-400 text-sm sm:text-base leading-relaxed">
+            A solid computational foundation in algorithmic design, data structures, and distributed systems.
           </p>
         </motion.div>
 
-        {/* ================= MOBILE ================= */}
+        {/* ================= MOBILE TIMELINE ================= */}
         <div className="relative md:hidden">
-          <div className="absolute left-4 top-0 h-full w-px bg-white/15" />
+          <div className="absolute left-4 top-0 h-full w-px bg-white/10" />
 
           <div className="space-y-8 pl-12">
             {(showAllMobile ? education : education.slice(0, 1)).map(
               (item, index) => (
                 <motion.div
                   key={index}
-                  initial={{ opacity: 0, y: 24 }}
+                  initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5 }}
-                  className="relative"
+                  transition={{ duration: 0.4 }}
+                  className="relative p-5 rounded-xl border border-white/10 bg-[#141416]"
                 >
-                  <div className="absolute -left-12 top-1 w-7 h-7 rounded-full bg-linear-to-r from-indigo-500 to-cyan-500 flex items-center justify-center shadow-md">
-                    <GraduationCap size={14} className="text-white" />
+                  <div className="absolute -left-12 top-4 w-6 h-6 rounded-full bg-[#0B0B0C] border border-[#CBF432] flex items-center justify-center text-[#CBF432]">
+                    <GraduationCap size={12} />
                   </div>
 
-                  <span className="text-indigo-400 text-sm font-semibold">
+                  <span className="text-[#CBF432] font-mono text-xs font-semibold">
                     {item.year}
                   </span>
 
-                  <h3 className="mt-1 text-lg font-semibold text-white">
+                  <h3
+                    className="mt-1 text-base font-bold text-white tracking-tight"
+                    style={{ fontFamily: "var(--font-syne), sans-serif" }}
+                  >
                     {item.degree}
                   </h3>
 
-                  <p className="text-cyan-400 text-sm">{item.institute}</p>
+                  <p className="text-zinc-300 text-xs font-mono mt-1">{item.institute}</p>
 
-                  <p className="mt-2 text-gray-400 text-sm leading-relaxed">
+                  <p className="mt-3 text-zinc-400 text-xs leading-relaxed">
                     {item.description}
                   </p>
                 </motion.div>
@@ -105,35 +116,38 @@ export default function Education() {
             )}
           </div>
 
-          <div className="mt-10 flex justify-center">
+          <div className="mt-8 flex justify-center">
             <button
               onClick={() => setShowAllMobile(!showAllMobile)}
-              className="flex items-center gap-2 px-6 py-3 rounded-full
-              border border-white/15 bg-white/5 backdrop-blur-md
-              text-sm font-medium text-gray-300 hover:text-white
-              hover:bg-white/10 transition"
+              className="
+                inline-flex items-center gap-2 px-5 py-2.5 rounded-xl
+                border border-white/10 bg-[#141416] text-xs font-medium text-zinc-300
+                hover:border-[#CBF432]/60 hover:text-[#CBF432] transition-colors cursor-pointer
+              "
             >
               {showAllMobile ? (
                 <>
-                  Show less <ChevronUp size={16} />
+                  <span>Show Less</span>
+                  <ChevronUp size={14} />
                 </>
               ) : (
                 <>
-                  View more <ChevronDown size={16} />
+                  <span>View Full Timeline</span>
+                  <ChevronDown size={14} />
                 </>
               )}
             </button>
           </div>
         </div>
 
-        {/* ================= DESKTOP ================= */}
+        {/* ================= DESKTOP TIMELINE ================= */}
         <div ref={timelineRef} className="relative hidden md:block">
           <div className="absolute left-1/2 top-0 h-full w-px bg-white/10" />
 
+          {/* Animated Scroll Progress Line */}
           <motion.div
             style={{ height: lineHeight }}
-            className="absolute left-1/2 top-0 w-px origin-top
-            bg-linear-to-b from-indigo-400 via-cyan-400 to-indigo-400"
+            className="absolute left-1/2 top-0 w-px origin-top bg-[#CBF432] shadow-[0_0_12px_rgba(203,244,50,0.6)]"
           />
 
           <div className="space-y-16">
@@ -143,52 +157,49 @@ export default function Education() {
               return (
                 <motion.div
                   key={index}
-                  initial={{ opacity: 0, y: 60 }}
+                  initial={{ opacity: 0, y: 40 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.7 }}
+                  transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
                   className={`relative flex items-center ${
                     isLeft ? "justify-start" : "justify-end"
                   }`}
                 >
-                  {/* Center Icon */}
+                  {/* Center Node */}
                   <div className="absolute left-1/2 -translate-x-1/2 z-10">
-                    <div className="relative">
-                      <div className="absolute inset-0 rounded-full bg-indigo-500/30 blur-lg" />
-                      <div className="w-12 h-12 rounded-full bg-linear-to-r from-indigo-500 to-cyan-500 flex items-center justify-center text-white shadow-lg">
-                        <GraduationCap size={20} />
-                      </div>
+                    <div className="w-10 h-10 rounded-full bg-[#0B0B0C] border-2 border-[#CBF432] flex items-center justify-center text-[#CBF432] shadow-[0_0_16px_rgba(203,244,50,0.3)]">
+                      <GraduationCap size={16} />
                     </div>
                   </div>
 
-                  {/* Card */}
-                  <motion.div
-                    whileHover={{ y: -6, scale: 1.015 }}
-                    transition={{ type: "spring", stiffness: 220, damping: 20 }}
-                    className={`w-[44%] rounded-xl
-                    bg-linear-to-br from-white/6 to-white/2
-                    border border-white/15 backdrop-blur-xl
+                  {/* Content Card */}
+                  <div
+                    className={`w-[44%] rounded-2xl
+                    bg-[#141416] border border-white/10
                     p-6 relative overflow-hidden group
-                    ${isLeft ? "mr-auto pr-10" : "ml-auto pl-10"}`}
+                    hover:border-[#CBF432]/60 hover:shadow-[0_10px_30px_rgba(203,244,50,0.06)]
+                    transition-all duration-300
+                    ${isLeft ? "mr-auto" : "ml-auto"}`}
                   >
-                    <div className="absolute inset-y-0 left-0 w-0.5 bg-linear-to-b from-indigo-400 to-cyan-400 scale-y-0 group-hover:scale-y-100 transition origin-top" />
-
-                    <span className="text-indigo-400 text-sm font-semibold">
-                      {item.year}
+                    <span className="text-[#CBF432] font-mono text-xs font-semibold">
+                      // {item.year}
                     </span>
 
-                    <h3 className="mt-2 text-lg font-semibold text-white">
+                    <h3
+                      className="mt-2 text-lg font-bold text-white tracking-tight"
+                      style={{ fontFamily: "var(--font-syne), sans-serif" }}
+                    >
                       {item.degree}
                     </h3>
 
-                    <p className="mt-1 text-cyan-400 text-sm font-medium">
+                    <p className="mt-1 text-zinc-300 text-xs font-mono">
                       {item.institute}
                     </p>
 
-                    <p className="mt-3 text-gray-400 leading-relaxed">
+                    <p className="mt-3 text-zinc-400 text-sm leading-relaxed">
                       {item.description}
                     </p>
-                  </motion.div>
+                  </div>
                 </motion.div>
               );
             })}

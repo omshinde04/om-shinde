@@ -6,75 +6,90 @@ import { motion } from "framer-motion";
 
 export default function ResumePage() {
   return (
-    <section className="relative min-h-screen bg-[#020617] text-white overflow-hidden">
-      {/* ===== Background Accents ===== */}
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute -top-40 left-1/2 h-130 w-130 -translate-x-1/2 rounded-full bg-cyan-500/10 blur-[180px]" />
-        <div className="absolute bottom-0 right-0 h-105 w-105 bg-indigo-500/10 blur-[160px]" />
+    <section className="relative min-h-screen bg-[#0B0B0C] text-white overflow-hidden pt-28 pb-20">
+      {/* Background Ambience */}
+      <div className="pointer-events-none absolute inset-0 -z-10">
+        <div className="absolute top-20 left-1/2 -translate-x-1/2 h-96 w-96 rounded-full bg-[#CBF432]/5 blur-[160px]" />
       </div>
 
-      <div className="mx-auto max-w-6xl px-4 sm:px-6 pt-20 pb-16">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6">
         {/* ===== Header ===== */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease: "easeOut" }}
-          className="mb-10 flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between"
+          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          className="mb-8 flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between"
         >
-         <div>
-  <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white">
-    My{" "}
-    <span className="text-transparent bg-clip-text bg-linear-to-r from-indigo-400 to-cyan-400">
-      Resume
-    </span>
-  </h2>
+          <div>
+            <div className="inline-flex items-center gap-2 mb-3">
+              <span className="w-2 h-2 rounded-full bg-[#CBF432]" />
+              <span className="text-[11px] font-mono tracking-widest text-[#CBF432] uppercase">
+                ATS-OPTIMIZED CURRICULUM VITAE
+              </span>
+            </div>
 
-  <p className="mt-3 text-gray-400 max-w-md">
-    View or download my resume in PDF format. Optimized for recruiters
-    and ATS systems.
-  </p>
-</div>
+            <h1
+              className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white leading-tight tracking-tight"
+              style={{ fontFamily: "var(--font-syne), sans-serif" }}
+            >
+              Professional <span className="text-[#CBF432]">Resume</span>
+            </h1>
 
-          {/* ===== Actions (Desktop) ===== */}
-          <div className="hidden sm:flex gap-4">
+            <p className="mt-3 text-zinc-400 text-sm sm:text-base max-w-md leading-relaxed">
+              Verified technical credentials, architectural achievements, and education history formatted for recruiters and ATS scanners.
+            </p>
+          </div>
+
+          {/* Desktop Actions */}
+          <div className="hidden sm:flex items-center gap-3">
             <a
               href="/resume/om_shinde.pdf"
               target="_blank"
-              className="inline-flex items-center gap-2 px-5 py-3 rounded-xl border border-white/15 bg-white/5 hover:bg-white/10 transition"
+              rel="noreferrer"
+              className="
+                inline-flex items-center gap-2 px-5 py-3 rounded-xl
+                border border-white/10 bg-[#141416] text-xs font-medium text-zinc-200
+                hover:border-[#CBF432]/60 hover:text-[#CBF432] transition-colors whitespace-nowrap
+              "
             >
-              <Eye size={18} />
-              View PDF
+              <Eye size={15} />
+              <span>View Raw PDF</span>
             </a>
 
             <a
               href="/resume/om_shinde.pdf"
-              download
-              className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-cyan-500 text-black font-semibold shadow-[0_12px_50px_rgba(56,189,248,0.4)] hover:brightness-110 transition"
+              download="Om_Shinde_Resume.pdf"
+              className="
+                inline-flex items-center gap-2 px-6 py-3 rounded-xl
+                bg-[#CBF432] text-[#0B0B0C] text-xs font-bold tracking-tight
+                hover:bg-[#d9f858] transition-colors shadow-[0_0_24px_rgba(203,244,50,0.25)] whitespace-nowrap
+              "
             >
-              <Download size={18} />
-              Download
+              <Download size={15} />
+              <span>Download PDF</span>
             </a>
           </div>
         </motion.div>
 
-        {/* ===== PDF Preview ===== */}
+        {/* ===== PDF Iframe Container ===== */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.97 }}
+          initial={{ opacity: 0, scale: 0.98 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
+          transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
           className="
             relative w-full
             h-[70vh] sm:h-[75vh] md:h-[80vh]
             rounded-2xl overflow-hidden
             border border-white/10
-            bg-black
-            shadow-[0_30px_120px_rgba(0,0,0,0.6)]
+            bg-[#141416]
+            shadow-[0_20px_80px_rgba(0,0,0,0.8)]
           "
         >
           <iframe
             src="/resume/om_shinde.pdf"
-            className="w-full h-full"
+            className="w-full h-full bg-[#0B0B0C]"
             style={{ border: "none" }}
+            title="Om Shinde Resume"
           />
         </motion.div>
 
@@ -82,25 +97,25 @@ export default function ResumePage() {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 0.4 }}
-          className="mt-10 flex justify-center sm:justify-start"
+          transition={{ delay: 0.3 }}
+          className="mt-8 flex justify-center sm:justify-start"
         >
           <Link
             href="/"
             className="
               group inline-flex items-center gap-2
-              px-5 py-3 rounded-full
-              border border-white/15 bg-white/5
-              text-gray-300 hover:text-cyan-400
-              hover:bg-white/10
-              transition
+              px-5 py-2.5 rounded-full
+              border border-white/10 bg-[#141416]
+              text-xs font-mono text-zinc-400 hover:text-[#CBF432]
+              hover:border-[#CBF432]/50
+              transition-colors
             "
           >
             <ArrowLeft
-              size={16}
-              className="group-hover:-translate-x-1 transition"
+              size={14}
+              className="group-hover:-translate-x-1 transition-transform"
             />
-            Back to Home
+            <span>← RETURN TO PORTFOLIO</span>
           </Link>
         </motion.div>
       </div>
@@ -111,7 +126,7 @@ export default function ResumePage() {
           fixed bottom-0 left-0 right-0 z-50
           sm:hidden
           border-t border-white/10
-          bg-[#020617]/90 backdrop-blur-xl
+          bg-[#0B0B0C]/90 backdrop-blur-xl
           px-4 py-3
           flex gap-3
         "
@@ -119,18 +134,18 @@ export default function ResumePage() {
         <a
           href="/resume/om_shinde.pdf"
           target="_blank"
-          className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl border border-white/15 bg-white/5 text-sm"
+          className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl border border-white/10 bg-[#141416] text-xs font-mono text-zinc-300"
         >
-          <Eye size={16} />
+          <Eye size={15} />
           View
         </a>
 
         <a
           href="/resume/om_shinde.pdf"
-          download
-          className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-cyan-500 text-black font-semibold text-sm"
+          download="Om_Shinde_Resume.pdf"
+          className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-[#CBF432] text-[#0B0B0C] font-bold text-xs font-mono shadow-[0_0_20px_rgba(203,244,50,0.3)]"
         >
-          <Download size={16} />
+          <Download size={15} />
           Download
         </a>
       </div>

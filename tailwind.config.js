@@ -2,19 +2,28 @@
 module.exports = {
   darkMode: "class",
   content: [
-    "./src/app/**/*.{js,jsx}",
-    "./src/components/**/*.{js,jsx}",
+    "./app/**/*.{js,jsx,ts,tsx}",
+    "./components/**/*.{js,jsx,ts,tsx}",
+    "./src/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
     extend: {
       colors: {
-        background: "#020617",
-        card: "#020617",
-        border: "#1e293b",
-        primary: "#6366f1",
-        secondary: "#22d3ee",
-        textPrimary: "#e5e7eb",
-        textSecondary: "#94a3b8",
+        background: "#0B0B0C",
+        card: "#141416",
+        border: "rgba(255, 255, 255, 0.08)",
+        lime: {
+          DEFAULT: "#CBF432",
+          400: "#CBF432",
+          500: "#B8E020",
+        },
+        textPrimary: "#FFFFFF",
+        textSecondary: "#A1A1AA",
+      },
+      fontFamily: {
+        syne: ["var(--font-syne)", "sans-serif"],
+        inter: ["var(--font-inter)", "sans-serif"],
+        mono: ["var(--font-mono)", "monospace"],
       },
     },
   },

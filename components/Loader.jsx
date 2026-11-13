@@ -9,7 +9,7 @@ export default function Loader() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setShow(false);
-    }, 1300); // total loader time
+    }, 1300);
 
     return () => clearTimeout(timer);
   }, []);
@@ -18,21 +18,21 @@ export default function Loader() {
     <AnimatePresence>
       {show && (
         <motion.div
-          className="fixed top-0 left-0 right-0 z-9999 pointer-events-none"
+          className="fixed top-0 left-0 right-0 z-[9999] pointer-events-none"
           initial={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 0.4, delay: 1.2 }}
+          transition={{ duration: 0.35, delay: 1.1 }}
         >
-          {/* ===== LOADING LINE ===== */}
+          {/* ===== HIGH-PRECISION CHARGE LINE ===== */}
           <motion.div
             initial={{ scaleX: 0 }}
             animate={{ scaleX: 1 }}
             transition={{
-              duration: 1.5,
-              ease: [0.65, 0, 0.35, 1], // premium easing
+              duration: 1.25,
+              ease: [0.16, 1, 0.3, 1],
             }}
             style={{ transformOrigin: "left" }}
-            className="h-0.5 w-full bg-linear-to-r from-cyan-400 via-blue-500 to-indigo-500"
+            className="h-[2.5px] w-full bg-[#CBF432] shadow-[0_0_16px_rgba(203,244,50,0.85)]"
           />
         </motion.div>
       )}
