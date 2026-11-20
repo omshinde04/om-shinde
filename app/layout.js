@@ -154,10 +154,36 @@ const jsonLd = {
         "https://www.gaavconnect.in",
         "https://www.zapiya.com",
       ],
-      alumniOf: {
-        "@type": "EducationalOrganization",
-        name: "Savitribai Phule Pune University (SPPU)",
-      },
+      disambiguatingDescription:
+        "Om Vilas Shinde is a Full Stack Software Engineer and founder of GaavConnect and Zapiya, based in Pune and Nashik, Maharashtra. He holds an M.Sc. in Computer Applications from Dr. D. Y. Patil College, Pimpri, Pune (2024–2026) and a B.Sc. in Computer Science from K.T.H.M. College, Nashik (2021–2023).",
+      alumniOf: [
+        {
+          "@type": "EducationalOrganization",
+          name: "Dr. D. Y. Patil Arts, Commerce & Science College, Pimpri, Pune",
+          url: "https://dypacs.dypvp.edu.in",
+        },
+        {
+          "@type": "EducationalOrganization",
+          name: "K.T.H.M. College, Nashik",
+          url: "https://kthmcollege.ac.in",
+        },
+        {
+          "@type": "CollegeOrUniversity",
+          name: "Savitribai Phule Pune University (SPPU)",
+        },
+      ],
+      hasCredential: [
+        {
+          "@type": "EducationalOccupationalCredential",
+          name: "Master of Science (M.Sc.) in Computer Applications",
+          credentialCategory: "degree",
+        },
+        {
+          "@type": "EducationalOccupationalCredential",
+          name: "Bachelor of Science (B.Sc.) in Computer Science",
+          credentialCategory: "degree",
+        },
+      ],
       knowsAbout: [
         "Full Stack Web Development",
         "MERN Stack",

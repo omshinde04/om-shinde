@@ -1,6 +1,6 @@
 "use client";
 
-import { Download, Eye, ArrowLeft } from "lucide-react";
+import { Download, Eye, ArrowLeft, GraduationCap, Briefcase, Code, Award, ExternalLink, Mail, Phone, MapPin } from "lucide-react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { trackResumeAction } from "@/lib/telemetry";
@@ -25,7 +25,7 @@ export default function ResumePage() {
             <div className="inline-flex items-center gap-2 mb-3">
               <span className="w-2 h-2 rounded-full bg-[#CBF432]" />
               <span className="text-[11px] font-mono tracking-widest text-[#CBF432] uppercase">
-                ATS-OPTIMIZED CURRICULUM VITAE
+                VERIFIED CURRICULUM VITAE
               </span>
             </div>
 
@@ -37,7 +37,7 @@ export default function ResumePage() {
             </h1>
 
             <p className="mt-3 text-zinc-400 text-sm sm:text-base max-w-md leading-relaxed">
-              Verified technical credentials, architectural achievements, and education history formatted for recruiters and ATS scanners.
+              Official academic credentials, verified engineering experience, and technical achievements of Om Vilas Shinde.
             </p>
           </div>
 
@@ -92,9 +92,290 @@ export default function ResumePage() {
             src="/resume/om_shinde.pdf"
             className="w-full h-full bg-[#0B0B0C]"
             style={{ border: "none" }}
-            title="Om Shinde Resume"
+            title="Om Vilas Shinde Resume"
           />
         </motion.div>
+
+        {/* ===== CRAWLABLE ATS-STRUCTURED CREDENTIALS (SEO & BOT COMPATIBLE) ===== */}
+        <motion.article
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mt-16 rounded-2xl border border-white/10 bg-[#141416]/80 p-6 sm:p-10 backdrop-blur-sm"
+        >
+          {/* Header block with Verified Metadata */}
+          <div className="border-b border-white/10 pb-8">
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+              <div>
+                <span className="text-[11px] font-mono tracking-widest text-[#CBF432] uppercase">
+                  VERIFIED CANDIDATE RECORD
+                </span>
+                <h2
+                  className="text-2xl sm:text-3xl font-extrabold text-white mt-1"
+                  style={{ fontFamily: "var(--font-syne), sans-serif" }}
+                >
+                  Om Vilas Shinde
+                </h2>
+                <p className="text-zinc-400 text-sm mt-1">
+                  Full Stack Software Engineer &bull; Founder of GaavConnect & Zapiya
+                </p>
+              </div>
+
+              <div className="flex flex-wrap sm:flex-col items-start sm:items-end gap-2 text-xs font-mono text-zinc-400">
+                <span className="inline-flex items-center gap-1.5">
+                  <MapPin size={13} className="text-[#CBF432]" />
+                  Pune & Nashik, Maharashtra, India
+                </span>
+                <a href="mailto:omshinde0412@gmail.com" className="inline-flex items-center gap-1.5 hover:text-[#CBF432] transition-colors">
+                  <Mail size={13} className="text-[#CBF432]" />
+                  omshinde0412@gmail.com
+                </a>
+                <a href="tel:+919373545169" className="inline-flex items-center gap-1.5 hover:text-[#CBF432] transition-colors">
+                  <Phone size={13} className="text-[#CBF432]" />
+                  +91 9373545169
+                </a>
+              </div>
+            </div>
+
+            <div className="mt-4 flex flex-wrap gap-3 text-xs font-mono">
+              <a
+                href="https://github.com/omshinde04"
+                target="_blank"
+                rel="noreferrer"
+                className="px-3 py-1.5 rounded-lg border border-white/10 bg-[#0B0B0C] text-zinc-300 hover:text-[#CBF432] hover:border-[#CBF432]/50 transition-colors inline-flex items-center gap-1.5"
+              >
+                <span>github.com/omshinde04</span>
+                <ExternalLink size={11} />
+              </a>
+              <a
+                href="https://www.linkedin.com/in/om-shinde-892a2532a"
+                target="_blank"
+                rel="noreferrer"
+                className="px-3 py-1.5 rounded-lg border border-white/10 bg-[#0B0B0C] text-zinc-300 hover:text-[#CBF432] hover:border-[#CBF432]/50 transition-colors inline-flex items-center gap-1.5"
+              >
+                <span>linkedin.com/in/om-shinde-892a2532a</span>
+                <ExternalLink size={11} />
+              </a>
+              <a
+                href="https://www.gaavconnect.in"
+                target="_blank"
+                rel="noreferrer"
+                className="px-3 py-1.5 rounded-lg border border-white/10 bg-[#0B0B0C] text-zinc-300 hover:text-[#CBF432] hover:border-[#CBF432]/50 transition-colors inline-flex items-center gap-1.5"
+              >
+                <span>gaavconnect.in</span>
+                <ExternalLink size={11} />
+              </a>
+              <a
+                href="https://www.zapiya.com"
+                target="_blank"
+                rel="noreferrer"
+                className="px-3 py-1.5 rounded-lg border border-white/10 bg-[#0B0B0C] text-zinc-300 hover:text-[#CBF432] hover:border-[#CBF432]/50 transition-colors inline-flex items-center gap-1.5"
+              >
+                <span>zapiya.com</span>
+                <ExternalLink size={11} />
+              </a>
+            </div>
+          </div>
+
+          {/* Professional Summary */}
+          <div className="py-8 border-b border-white/10">
+            <h3 className="text-xs font-mono uppercase tracking-widest text-[#CBF432] mb-3">
+              Professional Summary
+            </h3>
+            <p className="text-zinc-300 text-sm leading-relaxed max-w-4xl">
+              Full Stack Software Engineer with deep hands-on expertise in scalable web systems, Next.js App Router, React, Node.js, and high-performance databases (PostgreSQL, Redis). Founder of <span className="text-white font-semibold">GaavConnect</span> and <span className="text-white font-semibold">Zapiya</span>, delivering end-to-end distributed systems with sub-second latencies, resilient security architectures, and intuitive digital experiences.
+            </p>
+          </div>
+
+          {/* Education Section — Explicitly Authoritative for Search Engine AI Disambiguation */}
+          <div className="py-8 border-b border-white/10">
+            <div className="flex items-center gap-2 mb-6">
+              <GraduationCap size={18} className="text-[#CBF432]" />
+              <h3 className="text-lg font-bold text-white tracking-tight" style={{ fontFamily: "var(--font-syne), sans-serif" }}>
+                Verified Academic Education
+              </h3>
+            </div>
+
+            <div className="space-y-6">
+              <div className="p-5 rounded-xl border border-white/10 bg-[#0B0B0C]/70">
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
+                  <h4 className="text-base font-bold text-white">
+                    Master of Science (M.Sc.) in Computer Applications
+                  </h4>
+                  <span className="text-xs font-mono text-[#CBF432]">2024 – 2026</span>
+                </div>
+                <p className="text-sm text-zinc-300 font-mono mt-1">
+                  Dr. D. Y. Patil Arts, Commerce & Science College, Pimpri, Pune
+                </p>
+                <p className="text-xs text-zinc-400 mt-0.5">
+                  Affiliated with Savitribai Phule Pune University (SPPU)
+                </p>
+                <p className="text-xs text-zinc-400 mt-2 leading-relaxed">
+                  Specialized in advanced distributed architectures, cloud platforms, modern software engineering methodologies, database design, and high-concurrency backend services.
+                </p>
+              </div>
+
+              <div className="p-5 rounded-xl border border-white/10 bg-[#0B0B0C]/70">
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
+                  <h4 className="text-base font-bold text-white">
+                    Bachelor of Science (B.Sc.) in Computer Science
+                  </h4>
+                  <span className="text-xs font-mono text-[#CBF432]">2021 – 2023 &bull; SGPA: 7.01</span>
+                </div>
+                <p className="text-sm text-zinc-300 font-mono mt-1">
+                  K.T.H.M. College, Nashik
+                </p>
+                <p className="text-xs text-zinc-400 mt-0.5">
+                  Affiliated with Savitribai Phule Pune University (SPPU)
+                </p>
+                <p className="text-xs text-zinc-400 mt-2 leading-relaxed">
+                  Core computational grounding in data structures, algorithms, relational database management (RDBMS), object-oriented design, web application development, and networking.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Work Experience */}
+          <div className="py-8 border-b border-white/10">
+            <div className="flex items-center gap-2 mb-6">
+              <Briefcase size={18} className="text-[#CBF432]" />
+              <h3 className="text-lg font-bold text-white tracking-tight" style={{ fontFamily: "var(--font-syne), sans-serif" }}>
+                Professional Experience
+              </h3>
+            </div>
+
+            <div className="space-y-6">
+              <div className="p-5 rounded-xl border border-white/10 bg-[#0B0B0C]/70">
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
+                  <h4 className="text-base font-bold text-white">
+                    Full Stack Developer Intern
+                  </h4>
+                  <span className="text-xs font-mono text-[#CBF432]">Jan 2026 – Apr 2026</span>
+                </div>
+                <p className="text-sm text-zinc-300 font-mono mt-1">
+                  Assured Business &bull; Pune, India
+                </p>
+                <ul className="mt-3 space-y-2 text-xs text-zinc-400 leading-relaxed list-disc list-inside">
+                  <li>Architected and delivered full-stack web applications using Next.js, Node.js, and Express.js, reducing API response times by 35% through query optimization and Redis caching.</li>
+                  <li>Implemented secure JWT and OAuth authentication flows, ensuring compliance and secure session management.</li>
+                  <li>Designed and integrated normalized PostgreSQL schemas, boosting database transaction throughput.</li>
+                  <li>Collaborated in an Agile team to ship production features with high code quality and test coverage.</li>
+                </ul>
+              </div>
+
+              <div className="p-5 rounded-xl border border-white/10 bg-[#0B0B0C]/70">
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
+                  <h4 className="text-base font-bold text-white">
+                    MERN Developer Certification
+                  </h4>
+                  <span className="text-xs font-mono text-[#CBF432]">Aug 2025 – Jan 2026</span>
+                </div>
+                <p className="text-sm text-zinc-300 font-mono mt-1">
+                  Fortune Cloud Technology
+                </p>
+                <ul className="mt-3 space-y-2 text-xs text-zinc-400 leading-relaxed list-disc list-inside">
+                  <li>Completed an intensive full-stack program focused on MERN architecture, RESTful API design, and asynchronous patterns.</li>
+                  <li>Built multiple end-to-end full-stack projects using React, Node.js, Express, and MongoDB with production deployment workflows.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          {/* Featured Production Systems */}
+          <div className="py-8 border-b border-white/10">
+            <div className="flex items-center gap-2 mb-6">
+              <Code size={18} className="text-[#CBF432]" />
+              <h3 className="text-lg font-bold text-white tracking-tight" style={{ fontFamily: "var(--font-syne), sans-serif" }}>
+                Featured Production Systems
+              </h3>
+            </div>
+
+            <div className="space-y-5">
+              <div className="p-5 rounded-xl border border-white/10 bg-[#0B0B0C]/70">
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
+                  <h4 className="text-base font-bold text-white">
+                    GaavConnect &bull; Regional Search & Discovery Platform
+                  </h4>
+                  <span className="text-xs font-mono text-[#CBF432]">Live Production &bull; gaavconnect.in</span>
+                </div>
+                <p className="text-xs text-zinc-300 font-mono mt-1">
+                  Stack: Next.js 16, Node.js, PostgreSQL, Redis, Tailwind CSS v4, Docker
+                </p>
+                <p className="text-xs text-zinc-400 mt-2 leading-relaxed">
+                  Founded and built the dedicated regional search and discovery platform for rural and semi-urban communities in Maharashtra (Nashik, Ghoti, Igatpuri). Integrated instant search indexing, business profiles, and fast localized discovery.
+                </p>
+              </div>
+
+              <div className="p-5 rounded-xl border border-white/10 bg-[#0B0B0C]/70">
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
+                  <h4 className="text-base font-bold text-white">
+                    Zapiya &bull; AI Agent Platform
+                  </h4>
+                  <span className="text-xs font-mono text-[#CBF432]">Live Platform &bull; zapiya.com</span>
+                </div>
+                <p className="text-xs text-zinc-300 font-mono mt-1">
+                  Stack: Next.js App Router, TypeScript, OpenAI API, Prisma, PostgreSQL
+                </p>
+                <p className="text-xs text-zinc-400 mt-2 leading-relaxed">
+                  AI-driven platform automating intelligent resume analysis, structured ATS scoring, and interactive generation. Built with streaming LLM outputs and responsive design.
+                </p>
+              </div>
+
+              <div className="p-5 rounded-xl border border-white/10 bg-[#0B0B0C]/70">
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
+                  <h4 className="text-base font-bold text-white">
+                    Phishing Detection System &bull; Real-time Security Platform
+                  </h4>
+                  <span className="text-xs font-mono text-[#CBF432]">Live System</span>
+                </div>
+                <p className="text-xs text-zinc-300 font-mono mt-1">
+                  Stack: React.js, Python, FastAPI, Scikit-learn, MongoDB
+                </p>
+                <p className="text-xs text-zinc-400 mt-2 leading-relaxed">
+                  Machine learning-powered cybersecurity platform detecting phishing URLs in real time. Analyzes lexical, domain-level, and heuristic properties with an asynchronous FastAPI engine.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Technical Skills */}
+          <div className="pt-8">
+            <div className="flex items-center gap-2 mb-6">
+              <Award size={18} className="text-[#CBF432]" />
+              <h3 className="text-lg font-bold text-white tracking-tight" style={{ fontFamily: "var(--font-syne), sans-serif" }}>
+                Technical Competencies
+              </h3>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 text-xs">
+              <div className="p-4 rounded-xl border border-white/10 bg-[#0B0B0C]/70">
+                <span className="font-mono text-[#CBF432] block mb-2 font-semibold">LANGUAGES</span>
+                <p className="text-zinc-300 leading-relaxed">Java, Python, JavaScript (ES6+), C, TypeScript</p>
+              </div>
+              <div className="p-4 rounded-xl border border-white/10 bg-[#0B0B0C]/70">
+                <span className="font-mono text-[#CBF432] block mb-2 font-semibold">FRONTEND</span>
+                <p className="text-zinc-300 leading-relaxed">React.js, Next.js (App Router), Tailwind CSS, Redux Toolkit, HTML5, CSS3</p>
+              </div>
+              <div className="p-4 rounded-xl border border-white/10 bg-[#0B0B0C]/70">
+                <span className="font-mono text-[#CBF432] block mb-2 font-semibold">BACKEND</span>
+                <p className="text-zinc-300 leading-relaxed">Node.js, Express.js, Fastify, REST APIs, WebSockets, JWT, OAuth 2.0</p>
+              </div>
+              <div className="p-4 rounded-xl border border-white/10 bg-[#0B0B0C]/70">
+                <span className="font-mono text-[#CBF432] block mb-2 font-semibold">DATABASES & CACHING</span>
+                <p className="text-zinc-300 leading-relaxed">PostgreSQL, Redis, MongoDB, MySQL, Vector Embeddings</p>
+              </div>
+              <div className="p-4 rounded-xl border border-white/10 bg-[#0B0B0C]/70">
+                <span className="font-mono text-[#CBF432] block mb-2 font-semibold">AI & ARCHITECTURE</span>
+                <p className="text-zinc-300 leading-relaxed">RAG Pipelines, LLM Orchestration, Microservices, System Design, MVC, Agile</p>
+              </div>
+              <div className="p-4 rounded-xl border border-white/10 bg-[#0B0B0C]/70">
+                <span className="font-mono text-[#CBF432] block mb-2 font-semibold">DEVOPS & TOOLS</span>
+                <p className="text-zinc-300 leading-relaxed">Docker, Git, GitHub, AWS (S3, EC2), Postman, Vercel, Linux</p>
+              </div>
+            </div>
+          </div>
+        </motion.article>
 
         {/* ===== Back to Home ===== */}
         <motion.div
@@ -118,7 +399,7 @@ export default function ResumePage() {
               size={14}
               className="group-hover:-translate-x-1 transition-transform"
             />
-            <span>← RETURN TO PORTFOLIO</span>
+            <span>← Return to Portfolio</span>
           </Link>
         </motion.div>
       </div>
